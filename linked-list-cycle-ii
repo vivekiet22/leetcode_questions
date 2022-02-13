@@ -1,0 +1,39 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+def detectAndRemove(head):
+    slow_p = head 
+    fast_p = head
+    while slow_p and fast_p and fast_p.next:
+        slow_p = slow_p.next
+        fast_p = fast_p.next.next
+        if slow_p == fast_p:
+            
+            return remove(slow_p,head)
+            
+    return None
+def remove(node,head):
+    ptr1 = node
+    ptr2 = node
+    k = 1
+    
+    while ptr2.next!= ptr1:
+        ptr2 = ptr2.next
+        k+=1
+    ptr1 = head
+    ptr2 = head
+    for i in range(k):
+        ptr2 = ptr2.next
+    while ptr2!=ptr1:
+        ptr1 = ptr1.next
+        ptr2  = ptr2.next
+    return ptr1
+ 
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        return detectAndRemove(head)
+    
